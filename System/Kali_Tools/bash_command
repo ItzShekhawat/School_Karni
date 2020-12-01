@@ -1,0 +1,14 @@
+alias update='sudo apt-get update'
+
+alias upgrade='sudo apt-get upgrade'
+
+alias docker_new='newgrp docker'
+
+alias down="shutdown -t 1 "
+
+alias dvwa="docker run --rm -it -p 80:80 vulnerables/web-dvwa"
+
+alias juiceShop="docker run --rm -it -p 3000:3000 bkimminich/juice-shop"
+
+alias docker_start="systemctl start docker"
+
