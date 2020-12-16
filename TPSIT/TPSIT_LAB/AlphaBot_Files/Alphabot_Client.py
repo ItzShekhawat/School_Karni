@@ -67,7 +67,14 @@ def answere_check(answere):
         
         return path
         
+
+def turtle_draw(commands):
     
+    alphabot = turtle.Turtle()
+
+    
+
+    return
     
     
 
@@ -79,7 +86,9 @@ def main():
     
     answere = receiving_path(client)
 
-    answere_check(answere)
+    commands = answere_check(answere)
+
+    turtle_draw(commands)
 
 
 
