@@ -62,10 +62,11 @@ def answere_check(answere):
         semi_path = re.split('R|L|F|B', answere)
         path = {} 
         for elements in semi_path:
-            tempo_path = re.split("[0-9]",semi_path)
-            path.update({tempo_path[0]: tempo_path[1]})
+            tempo_path = re.split('al{1}',semi_path)
+            path.update({tempo_path[0]: int(tempo_path[1])})
         
         return path
+        
         
 
 def turtle_draw(commands):
