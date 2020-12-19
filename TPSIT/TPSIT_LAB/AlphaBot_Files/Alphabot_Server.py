@@ -6,11 +6,11 @@ from sqlite3.dbapi2 import Cursor
 import threading
 import logging
 
-import tkinter as tk
 
 
-ip_serv = "192.168.1.79"
-port_serv = 7000
+
+ip_serv = "192.168.1.5"
+port_serv = 4500
 
 logging.basicConfig(level=DEBUG, format='%(asctime)s:%(levelname)s:%(message)s') 
 
@@ -20,6 +20,7 @@ class alphabot_handle(threading.Thread):
         threading.Thread.__init__(self)
         self.conn_tunnel = connection
         self.add = address
+        logging.info("Client connected")
 
     def run(self):
         self.alphabot_receive()
@@ -42,7 +43,7 @@ class alphabot_handle(threading.Thread):
     def query_creating(self):
 
         cursor = self.connection.cursor()
-        logging.debug(f"SELECT percorso FROM percorsi INNER JOIN inizio_fine ON inizio_fine.id_percorso = percorsi.id WHERE (SELECT id_start FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_start AND luoghi.nome = '{self.choice[1]}') = inizio_fine.id_start AND(SELECT id_end FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_end AND luoghi.nome = '{self.choice[0]}') = inizio_fine.id_end")
+        #logging.debug(f"SELECT percorso FROM percorsi INNER JOIN inizio_fine ON inizio_fine.id_percorso = percorsi.id WHERE (SELECT id_start FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_start AND luoghi.nome = '{self.choice[1]}') = inizio_fine.id_start AND(SELECT id_end FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_end AND luoghi.nome = '{self.choice[0]}') = inizio_fine.id_end")
         cursor.execute(f"SELECT percorso FROM percorsi INNER JOIN inizio_fine ON inizio_fine.id_percorso = percorsi.id WHERE (SELECT id_start FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_start AND luoghi.nome = '{self.choice[1]}') = inizio_fine.id_start AND(SELECT id_end FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_end AND luoghi.nome = '{self.choice[0]}') = inizio_fine.id_end" )
         try:
             self.path = cursor.fetchone()
