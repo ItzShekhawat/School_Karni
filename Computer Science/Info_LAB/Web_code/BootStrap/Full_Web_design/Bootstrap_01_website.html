@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Homework _bootstarp</title>
+        <title>Homework Bootstrap</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -12,43 +12,82 @@
         <link href="style.css" rel="stylesheet">
     </head>
 <body>
-    <!--Navbar Settings -->
-    <nav class ="navbar navbar-expand-xl navbar-dark bg-dark">
-        <a class ="navbar-brand" href ="#"> Website Name </a>
-        <button class ="navbar-toggler" type ="button" data-toggle ="collapse" data-target ="#colNav">
-            <span class ="navbar-toggler-icon"></span>
-        </button>
-        <div class ="collapse navbar-collapse" id ="colNav">
-            <ul class ="navbar-nav">
-                <li class ="nav-item active" >
-                    <a class ="nav-link" href="#"> Services </a>
-                </li>
-                <li class ="nav-item">
-                    <a class ="nav-link" href ="#"> About Us</a>
-                </li>
-                <li class ="nav-item">
-                    <a class ="nav-link" href ="#"> Contact Us </a>
-                </li>
-            </ul>
+    <div class="container-sm" >
+        <!-------------------------------------------------------------Navbar Setting ------------------------------------------------------------------------->    
+        <div class="columns">
+            <nav class ="navbar navbar-expand-sm navbar-dark bg-dark">
+                <a class ="navbar-brand bg-danger text-white " href ="#"> The F1 Fan</a>
+                <button class ="navbar-toggler" type ="button" data-toggle ="collapse" data-target ="#colNav">
+                    <span class ="navbar-toggler-icon"></span>
+                </button>
+                <div class ="collapse navbar-collapse" id ="colNav">
+                    <ul class ="navbar-nav">
+                        <li class ="nav-item active" >
+                            <a class ="nav-link" href="#"> Cars </a>
+                        </li>
+                        <li class ="nav-item">
+                            <a class ="nav-link" href ="#"> Races</a>
+                        </li>
+                        <li class ="nav-item">
+                            <a class ="nav-link" href ="#"> Companies </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-    </nav>
-    <!--Cards Setting  -->
-    <div class="card-columns">
-        <div class="col-md-12">
-          <div class="card" >
-            <img class="card-img-top" src="Naruto1.jpg" alt="Card image cap">
-          </div>
-        </div>
-        <div class="col-md-12">
-            <div class="card" >
-              <img class="card-img-top" src="itachi.jpg" alt="Card image cap">
+        <!-------------------------------------------------------------Cards Setting ------------------------------------------------------------------------->
+        <div class="card-group">
+            <div class="card">
+                <img class="card-img-top" src="f1_black.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title p-3 mb-2 bg-dark text-white ">Black Death</h3>
+                </div>
             </div>
-        </div>
-        <div class="col-md-12">
-            <div class="card" >
-              <img class="card-img-top" src="kakashi.jpg" alt="Card image cap">
+            <div class="card">
+                <img class="card-img-top" src="f1_red.jpg" alt="Card image cap">
+                <div class="card-body  ">
+                    <h3 class="card-title p-3 mb-2 bg-danger text-white">Red Fire</h3>
+                </div>
             </div>
+            <div class="card">
+                <img class="card-img-top" src="f1_blue.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title p-3 mb-2 bg-primary text-white">Blue Thunder</h3>
+                </div>
+            </div>
+        </div> 
+        <!-------------------------------------------------------------Carousel Setting ------------------------------------------------------------------------->
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="Slide1.jfif" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="Slide2.jfif" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="Slide3.jfif" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
         </div>
-    </div> 
+        <!-------------------------------------------------------------Footer Setting ------------------------------------------------------------------------->
+        <div class="row-fluid">
+             <footer>
+                <h2 class="p-3 mb-2 bg-dark text-white" >F1 Fan page, by Shekhawat Karni Singh</h2>
+            </footer>
+        </div>
+    </div>
 </body>
 </html>
+
