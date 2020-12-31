@@ -80,3 +80,10 @@ class AlphaBot(object):
             self.PWMB.ChangeDutyCycle(0 - left)
 
     
+if __name__ == "__main__":
+    while True:
+        ap = AlphaBot()
+        ap.right()
+        
+
+
