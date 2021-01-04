@@ -2,13 +2,19 @@
 import socket as sok
 import turtle
 import logging
-import time
+from time import sleep
 import re
+# importing the Alphabot moving class
+from Alphabot import Alphabot
 
 # global variables setting 
-server_ip = "192.168.1.5"
+server_ip = "192.168.1.8"
 server_port = 4500
 full_address = (server_ip, server_port)
+
+# Insistence of Alphabot class
+ap = Alphabot()
+    
 
 # Setting up the loggers 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s') 
@@ -53,8 +59,6 @@ def receiving_path(client):
         logging.exception("Something went wrong with receiving the path")
 
 
-
-
 def answer_check(answer):
 
     if re.findall("^0", answer):
@@ -82,20 +86,42 @@ def answer_check(answer):
         return path
         
         
-
+""""
 def turtle_draw(commands):
-    
     alphabot = turtle.Turtle()
-
-    
-
     return
-    
-    
+    #turtle_draw(commands)
+"""
+
+def movieAlphabot(path):
+
+    for key in path:
+        if key == "F":
+            ap.forward()
+            sleep(path.get(key, None))
+            ap.stop()
+        
+        elif key == "B":
+            ap.backward()
+            sleep(path.get(key, None))
+            ap.stop()
+
+        elif key == "R":
+            ap.right()
+            sleep(path.get(key, None))
+            ap.stop()
+            
+        elif key == "L":
+            ap.left()
+            sleep(path.get(key, None))
+            ap.stop()
+
+        else:
+            logging.info(f"The path has some kind of problem in the key : {key}")
 
 
 def main():
-
+    
     client = set_socket()
     request_send(client)
     
@@ -103,13 +129,8 @@ def main():
 
     commands = answer_check(answer)
 
-    #turtle_draw(commands)
-
-
-
-    
-
-
+    # Using the path for moving the Alphabot
+    movieAlphabot(commands)
 
 
 
