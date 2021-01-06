@@ -1,4 +1,0 @@
-// C++ cryptography
-
-#include <iostream>
-
