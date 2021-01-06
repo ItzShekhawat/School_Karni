@@ -33,12 +33,12 @@ def set_socket():
 # Sending the request for the path 
 def request_send(client):
     print("Input the [stop,start] for the path:")
-    request = input('>>')
+    request_path = input('>>')
 
     try:
-        logging.debug(request)
+        logging.debug(request_path)
         # the request sent 
-        client.sendall(request.encode())
+        client.sendall(request_path.encode())
     except:
         logging.exception("Request was not made")
 
@@ -98,26 +98,27 @@ def movieAlphabot(path):
     for key in path:
         if key == "F":
             ap.forward()
-            sleep(path.get(key, None))
+            sleep(path.get(key, None)/100)
             ap.stop()
         
         elif key == "B":
             ap.backward()
-            sleep(path.get(key, None))
+            sleep(path.get(key, None)/100)
             ap.stop()
 
         elif key == "R":
             ap.right()
-            sleep(path.get(key, None))
+            sleep(path.get(key, None)/100)
             ap.stop()
             
         elif key == "L":
             ap.left()
-            sleep(path.get(key, None))
+            sleep(path.get(key, None)/100)
             ap.stop()
 
         else:
-            logging.info(f"The path has some kind of problem in the key : {key}")
+            pass
+            #logging.info(f"The path has some kind of problem in the key : {key}")
 
 
 def main():
