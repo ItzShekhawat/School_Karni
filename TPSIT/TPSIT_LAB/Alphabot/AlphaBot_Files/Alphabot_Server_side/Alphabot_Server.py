@@ -9,7 +9,7 @@ import logging
 
 
 
-ip_serv = "192.168.1.5"
+ip_serv = "192.168.1.9"
 port_serv = 4500
 
 logging.basicConfig(level=DEBUG, format='%(asctime)s:%(levelname)s:%(message)s') 
@@ -34,7 +34,7 @@ class alphabot_handle(threading.Thread):
 
         logging.info(f"The message received is : start [{self.choice[1]}], stop [{self.choice[0]}]")
         try:
-            self.connection = sqlite3.connect("percorsi.db")
+            self.connection = sqlite3.connect(r"C:\Users\shekh\Desktop\School_Karni\TPSIT\TPSIT_LAB\Alphabot\AlphaBot_Files\Alphabot_Server_side\percorsi.db")
         except:
             logging.error("DB connection not established ")
             
@@ -44,16 +44,19 @@ class alphabot_handle(threading.Thread):
 
         cursor = self.connection.cursor()
         #logging.debug(f"SELECT percorso FROM percorsi INNER JOIN inizio_fine ON inizio_fine.id_percorso = percorsi.id WHERE (SELECT id_start FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_start AND luoghi.nome = '{self.choice[1]}') = inizio_fine.id_start AND(SELECT id_end FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_end AND luoghi.nome = '{self.choice[0]}') = inizio_fine.id_end")
-        cursor.execute(f"SELECT percorso FROM percorsi INNER JOIN inizio_fine ON inizio_fine.id_percorso = percorsi.id WHERE (SELECT id_start FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_start AND luoghi.nome = '{self.choice[1]}') = inizio_fine.id_start AND(SELECT id_end FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_end AND luoghi.nome = '{self.choice[0]}') = inizio_fine.id_end" )
+        cursor.execute(f'SELECT percorso FROM percorsi INNER JOIN inizio_fine ON inizio_fine.id_percorso = percorsi.id WHERE (SELECT id_start FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_start AND luoghi.nome = "{self.choice[1]}") = inizio_fine.id_start AND(SELECT id_end FROM inizio_fine INNER JOIN luoghi WHERE luoghi.id = inizio_fine.id_end AND luoghi.nome = "{self.choice[0]}") = inizio_fine.id_end' )
         try:
             self.path = cursor.fetchone()
             if self.path != None:
                 logging.info(f"The path to send : {self.path[0]}")
                 self.connection.close()
+                self.alphabot_sender()
             else:   
                 logging.error("Path not found , error in the input. ")
         except:
             logging.error("Something went wrong in the cursor")
+        
+        
             
         
     def alphabot_sender(self):

@@ -5,15 +5,15 @@ import logging
 from time import sleep
 import re
 # importing the Alphabot moving class
-from Alphabot import Alphabot
+#from AlphaBot import AlphaBot
 
 # global variables setting 
-server_ip = "192.168.1.8"
+server_ip = "192.168.1.9"
 server_port = 4500
 full_address = (server_ip, server_port)
 
 # Insistence of Alphabot class
-ap = Alphabot()
+#ap = Alphabot()
     
 
 # Setting up the loggers 
@@ -48,9 +48,11 @@ def receiving_path(client):
 
     try:
         answer = client.recv(1024)
+        print(answer)
         answer = answer.decode()
         answer = answer.strip('][').split(', ')
-        answer = answer[1]
+        print(answer)
+        answer = answer[0]
         print(answer) 
 
         return answer 
@@ -85,40 +87,46 @@ def answer_check(answer):
         
         return path
         
-        
-""""
-def turtle_draw(commands):
-    alphabot = turtle.Turtle()
-    return
-    #turtle_draw(commands)
-"""
+    
 
 def movieAlphabot(path):
 
     for key in path:
         if key == "F":
-            ap.forward()
+            print("Forward")
             sleep(path.get(key, None)/100)
+            """
+            ap.forward()
             ap.stop()
+            """
         
         elif key == "B":
-            ap.backward()
+            print("Backward")
             sleep(path.get(key, None)/100)
+            """
+            ap.backward()
             ap.stop()
+            """
 
         elif key == "R":
-            ap.right()
+            print("Right")
             sleep(path.get(key, None)/100)
+            """
+            ap.right()
             ap.stop()
+            """
             
         elif key == "L":
-            ap.left()
+            print("Left")
             sleep(path.get(key, None)/100)
+            """
+            ap.left()
             ap.stop()
+            """
 
         else:
             pass
-            #logging.info(f"The path has some kind of problem in the key : {key}")
+            logging.info("The path has some kind of problem in the key : {key}")
 
 
 def main():
