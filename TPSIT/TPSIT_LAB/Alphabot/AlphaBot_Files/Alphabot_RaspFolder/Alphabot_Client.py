@@ -5,7 +5,7 @@ import logging
 from time import sleep
 import re
 # importing the Alphabot moving class
-#from AlphaBot import AlphaBot
+from Alphabot import AlphaBot
 
 # global variables setting 
 server_ip = "192.168.1.9"
@@ -13,7 +13,7 @@ server_port = 4500
 full_address = (server_ip, server_port)
 
 # Insistence of Alphabot class
-#ap = Alphabot()
+ap = AlphaBot()
     
 
 # Setting up the loggers 
@@ -94,35 +94,34 @@ def movieAlphabot(path):
     for key in path:
         if key == "F":
             print("Forward")
-            sleep(path.get(key, None)/100)
-            """
             ap.forward()
+            sleep(path.get(key, None)/100)
             ap.stop()
-            """
+            
         
         elif key == "B":
             print("Backward")
-            sleep(path.get(key, None)/100)
-            """
+            
             ap.backward()
+            sleep(path.get(key, None)/100)
             ap.stop()
-            """
+            
 
         elif key == "R":
             print("Right")
-            sleep(path.get(key, None)/100)
-            """
+            
             ap.right()
+            sleep(path.get(key, None)/100)
             ap.stop()
-            """
+            
             
         elif key == "L":
             print("Left")
-            sleep(path.get(key, None)/100)
-            """
+            
             ap.left()
+            sleep(path.get(key, None)/100)
             ap.stop()
-            """
+            
 
         else:
             pass
