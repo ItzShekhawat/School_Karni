@@ -1,0 +1,5 @@
+Classroom API : 
+
+client ID : 942173538265-bes2bes844380d5g11i5u1mlnudu4af2.apps.googleusercontent.com
+
+client Secret : WAcQM298_cLZsmMDqfKUgNoi

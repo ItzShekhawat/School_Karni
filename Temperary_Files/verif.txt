@@ -1,0 +1,40 @@
+CREATE TABLE Degenti(
+	"id" INTEGER NOT NULL,
+	"cogn" VARCHAR(20) NOT NULL,
+	"nome" VARCHAR(20) NOT NULL,
+	"sesso" CHAR(1) NOT NULL CHECK(sesso in ('S','M')),
+	"natoIl" DATE  NOT NULL CHECK(natoIl <= CURRENT_DATE),
+	"peso" REAL CHECK(peso < 10 and peso > 1),
+	"stanzaDeg" INT NOT NULL,
+	PRIMARY KEY ("id" AUTOINCREMENT),
+	FOREIGN KEY ("stanzaDeg") REFERENCES "Stanze"("numStan")
+	
+		ON DELETE RESTRICT
+		ON UPDATE CASCADE	
+)
+
+
+CREATE TABLE Stanze(
+	"numStan" INT NOT NULL CHECK(numStanza > 0),
+	"Piano" INT NOT NULL ,
+	
+	PRIMARY KEY ("numStanza")
+
+		ON DELETE RESTRICT
+		ON UPDATE CASCADE
+)
+
+CREATE TABLE Madri(
+	"idMadre" INTEGER NOT NULL,
+	"idFiglio" INTEGER NOT NULL,
+
+	PRIMARY KEY ("idMadre", "idFiglio"),
+	FOREIGN KEY ("idMadre") REFERENCES "Degenti"("id")
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	FOREIGN KEY ("idFiglio") REFERENCES "Degenti"("id")
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+)
+
+
