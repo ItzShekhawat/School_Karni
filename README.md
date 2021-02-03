@@ -1,2 +1,1 @@
-# School_Karni
- Official Shekhawat School Repo
+![](https://gph.is/2pV0c4A)
