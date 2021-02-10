@@ -1,0 +1,38 @@
+body{
+    
+    padding: 0px;
+    margin: 0px;
+    min-height: 100vh;
+    min-width: 100vw;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: medium;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: gray;
+    position: relative;
+}
+
+div{
+    position: absolute;
+    top: 25%;
+    left: 37%;
+    width: 25%;
+    height: 50%;
+    background: rgb(255, 255, 255);
+}
+
+form{
+    height: 100%;
+    background: rgba(171, 248, 126, 0.37);
+}
+
+input{
+    margin: 3px;
+    font-size: 15px;
+    width: 90%;
+    height: 20px;
+}
+
+body label{
+    font-size: small;
+}
