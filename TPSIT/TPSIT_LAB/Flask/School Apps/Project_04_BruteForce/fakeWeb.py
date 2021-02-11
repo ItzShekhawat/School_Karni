@@ -10,8 +10,8 @@ def client():
 
     while True:
 
-        body = "username=Karni&email=karni.shekhawat%gmail.com&password=455"
-        msg = f"POST http://127.0.0.1:80/register HTTP/1.1\r\nHost: 127.0.0.1:80\r\nConnection: open\r\nContent_Type: 'application/x-www-form-urlencoded'\nContent_Length: {len(body)}\r\n\r\n"+body
+        body = "username=Karni&email=karni.shekhawat@gmail.com&password=455"
+        msg = f"POST http://127.0.0.1:80/register HTTP/1.1\r\nHost: 127.0.0.1:80\r\nConnection: open\r\nContent_Type:application/x-www-form-urlencoded\nContent_Length: {len(body)}\r\n\r\n"+body
         print(f"sending:\n\n{msg}\n\n")
         c.sendall(msg.encode())
         echo_msg = c.recv(4096)
