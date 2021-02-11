@@ -1,0 +1,30 @@
+body{
+    background:gray;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+div{
+    background-color: blue;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    position: relative;
+    padding: 10px;
+    background: rgba(0,0,0, 0.7);
+    width: 500px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);ß
+}
+
+
+
