@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 class Operator{
@@ -12,29 +13,35 @@ class Operator{
             else{ op = op; }
         }
 
-        virtual void adding() = 0;
+        virtual void somma(){
+            cout << "The onw" << endl;
+        }
 
 
 };
 
 class Num : public Operator{
 
-
+    void somma(float val1, float val2){
+        cout << val1+val2 << endl;
+    }
 
 };
 
 class Str : public Operator{
+    
+    void somma(string val1, string val2){
 
-
-
+        cout << val1+val2 << endl;
+    }
 
 };
 // ----------------------------------------------------------------------------------
 
 int main(){
 
-    string val1;
-    string val2;
+    float val1;
+    float val2;
     string operation;
 
 
@@ -52,6 +59,11 @@ int main(){
 
     // ----------------------------------------------------------------
 
+    Operator *op;
+    Num n;
+    op = &n;
+
+    op->somma();
 
 
     return 0;
