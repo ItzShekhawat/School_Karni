@@ -1,3 +1,11 @@
 body{
-    background: red;
+    background: rgba(174, 212, 236, 0.575);
+}
+
+input{
+    margin: 5px;
+}
+
+button{
+    margin: 5px;
 }
